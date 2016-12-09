@@ -35,7 +35,7 @@ Your puzzle answer was 182.
 directions = "R3, L5, R1, R2, L5, R2, R3, L2, L5, R5, L4, L3, R5, L1, R3, R4, R1, L3, R3, L2, L5, L2, R4, R5, R5, L4, L3, L3, R4, R4, R5, L5, L3, R2, R2, L3, L4, L5, R1, R3, L3, R2, L3, R5, L194, L2, L5, R2, R1, R1, L1, L5, L4, R4, R2, R2, L4, L1, R2, R53, R3, L5, R72, R2, L5, R3, L4, R187, L4, L5, L2, R1, R3, R5, L4, L4, R2, R5, L5, L4, L3, R5, L2, R1, R1, R4, L1, R2, L3, R5, L4, R2, L3, R1, L4, R4, L1, L2, R3, L1, L1, R4, R3, L4, R2, R5, L2, L3, L3, L1, R3, R5, R2, R3, R1, R2, L1, L4, L5, L2, R4, R5, L2, R4, R4, L3, R2, R1, L4, R3, L3, L4, L3, L1, R3, L2, R2, L4, L4, L5, R3, R5, R3, L2, R5, L2, L1, L5, L1, R2, R4, L5, R2, L4, L5, L4, L5, L2, L5, L4, R5, R3, R2, R2, L3, R3, L2, L5"
 
 
-def getDirection(direction, steps, facing):
+def get_direction(direction, steps, facing):
   if direction == 'R':
     # turn right
     facing += 1
@@ -69,7 +69,7 @@ def blocks_away(directions):
     coord = coord.strip()
     direction = coord[:1]
     steps = coord[1:]
-    x, y, facing = getDirection(direction, int(steps), facing)
+    x, y, facing = get_direction(direction, int(steps), facing)
     start = (start[0] + x, start[1] + y)
 
   return abs(start[0]) + abs(start[1])
@@ -82,7 +82,7 @@ def blocks_away_first(directions):
     coord = coord.strip()
     direction = coord[:1]
     steps = coord[1:]
-    x, y, facing = getDirection(direction, int(steps), facing)
+    x, y, facing = get_direction(direction, int(steps), facing)
 
     # Generate path walked from prev position to new position
     x_step = 1 if x >= 0 else -1
